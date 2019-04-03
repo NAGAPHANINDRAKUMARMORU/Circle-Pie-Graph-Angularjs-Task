@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+	<head>
+		<meta charset="UTF-8">
+		<title>MNPK</title>
+<!-- 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script> -->
+		<script src = "scripts/angular.min.js"></script>
+		<script src = "scripts/script.js"></script>
+		<link href="styles/style.css" rel="stylesheet"/>
+		
+	</head>
+	<body ng-controller = "myController" >
+	
+	
+		<div class="boxlocation">
+		<form name="myForm">
+			<div class="inputboxlocation">
+				<span class="scorelabe">Score :</span>
+				
+				<input class="inputtextsearch" name="userinput" type="text" placeholder="Enter Score b/w 0 and 100" ng-model="text" min="0" max="100" required/>
+				
+				<button class="inputsubmitbutton" ng-click=submitText(text) ng-disabled="myForm.userinput.$invalid">Submit</button>
+			</div>
+		</form>	
+		<div class="errormsglocation locationleft">
+			<span class="error" ng-if="myForm.userinput.$error.required"> Fill The Above Field </span>
+			
+		</div>
+		<div class=errormsglocation>
+			<span class="error" ng-if="aboverange&&(!myForm.userinput.$error.required) "> Score Must in Between 0 & 100 </span>
+		</div>
+			<div class="outputboxlocation">
+				<div class="pigraph" style="--value:{{displaytext}}%;--value1:{{displaytext*2}}%">
+					<div class="innercircle">
+						<div class="uppertext">{{displaytext}}</div>
+						<div class="middleline"></div>
+						<div class="lowertext">100</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div> 
+	
+	  
+	</body>
+</html>
